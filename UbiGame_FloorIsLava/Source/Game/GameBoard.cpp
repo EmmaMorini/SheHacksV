@@ -165,7 +165,13 @@ void GameBoard::UpdatePlayerDying() ////////////////////////////////////
 		return;
 
 	static float xToPlayerDie = 0.f;
+	static float yToPlayerDie = 360.f;
 	if (m_player->GetPos().x < xToPlayerDie)
+	{
+		m_isGameOver = true;
+		SpawnEndMessage(false);
+	}
+	if (m_player->GetPos().y > yToPlayerDie)
 	{
 		m_isGameOver = true;
 		SpawnEndMessage(false);
