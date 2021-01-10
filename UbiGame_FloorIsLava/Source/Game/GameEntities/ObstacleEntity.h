@@ -1,6 +1,7 @@
 #pragma once
 #include "GameEngine/EntitySystem/Entity.h"
 #include "GameEngine/EntitySystem/Components/SpriteRenderComponent.h"
+#include <string>
 
 namespace Game
 {
@@ -8,7 +9,7 @@ namespace Game
 	class ObstacleEntity : public GameEngine::Entity
 	{
 	public:
-		ObstacleEntity();
+		ObstacleEntity(std::string objectType);
 		~ObstacleEntity();
 
 		virtual void OnAddToWorld() override;

@@ -50,9 +50,28 @@ namespace TextureHelper
         switch (texture)
         {
         case  GameEngine::eTexture::Player:  return sf::Vector2f(32.f, 32.f);
-        case  GameEngine::eTexture::Tileset: return sf::Vector2f(32.f, 32.f);
+        //case  GameEngine::eTexture::Tileset: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Bookshelf: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Armchair1: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Armchair2: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Chair1: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Chair2: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Bathtub: return sf::Vector2f(32.f, 32.f); 
         case  GameEngine::eTexture::BG:	     return sf::Vector2f(500.f, 500.f);
         case  GameEngine::eTexture::Particles: return sf::Vector2f(31.f, 32.f);
+		case  GameEngine::eTexture::Number0: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Number1: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Number2: return sf::Vector2f(32.f, 32.f); 
+		case  GameEngine::eTexture::Number3: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Number4: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Number5: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Number6: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Number7: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Number8: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Number9: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Win: return sf::Vector2f(500.f, 500.f);
+		case  GameEngine::eTexture::Lose: return sf::Vector2f(500.f, 500.f);
+
         default:							 return sf::Vector2f(-1.f, -1.f);
         }
     }

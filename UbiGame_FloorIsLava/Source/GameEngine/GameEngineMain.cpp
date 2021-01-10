@@ -51,7 +51,7 @@ void GameEngineMain::OnInitialised()
 
 void GameEngineMain::CreateAndSetUpWindow()
 {
-	m_renderWindow = new sf::RenderWindow(sf::VideoMode((unsigned int)WINDOW_WIDTH, (unsigned int)WINDOW_HEIGHT), "Hack The North");
+	m_renderWindow = new sf::RenderWindow(sf::VideoMode((unsigned int)WINDOW_WIDTH, (unsigned int)WINDOW_HEIGHT), "The Floor is Lava!");
 	m_renderTarget = m_renderWindow;
 }
 
@@ -107,6 +107,9 @@ void GameEngineMain::Update()
 	//We pool last delta and will pass it as GetTimeDelta - from game perspective it's more important that DT stays the same the whole frame, rather than be updated halfway through the frame
 	m_lastDT = sm_deltaTimeClock.getElapsedTime().asSeconds();
 	sm_deltaTimeClock.restart();
+
+	//GetTime() function
+	m_currentT = sm_gameClock.getElapsedTime().asSeconds();
 }
 
 

@@ -87,6 +87,9 @@
     <ClCompile Include="Source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\GameComponents\PawnPhysicsComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\GameEngine\GameEngineMain.h">
@@ -155,5 +158,78 @@
     <ClInclude Include="Source\Game\GameComponents\PlayerCameraComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Game\GameComponents\PawnPhysicsComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\img\stool.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\8.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\9.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\armchair.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\armchair2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\bathtub.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\bg.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\bookshelf.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\chair.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\chair2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\chair3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\img\sofa.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Source\Game\NewFile.txt" />
+    <Text Include="NewFile.txt" />
+    <Text Include="Resources\NewFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewFolder" />
   </ItemGroup>
 </Project>

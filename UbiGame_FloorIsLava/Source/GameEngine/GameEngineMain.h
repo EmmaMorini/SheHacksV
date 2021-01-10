@@ -18,6 +18,11 @@ namespace GameEngine
 		static GameEngineMain* GetInstance() { if (!sm_instance) sm_instance = new GameEngineMain(); return sm_instance; }
 		//Returns time between update frames in seconds
 		static float		   GetTimeDelta() { return GetInstance()->m_lastDT; }
+
+		//Returns the time passed since game begun
+		static float		   GetTime() { return GetInstance()->m_currentT; }
+		//
+
 		static float		   GetGameTime() { return sm_gameClock.getElapsedTime().asSeconds(); }
 
 		sf::RenderWindow* GetRenderWindow() const { return m_renderWindow; }
@@ -57,6 +62,9 @@ namespace GameEngine
 
 		Game::GameBoard*    m_gameBoard;
 		float				m_lastDT;
+
+		//varuable for time since game begun
+		float				m_currentT;
 
 		bool m_windowInitialised;
 	};

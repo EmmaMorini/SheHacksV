@@ -2,6 +2,7 @@
 
 #include "Game/GameComponents/PlayerSoundComponent.h"
 #include "Game/GameComponents/PlayerCameraComponent.h"
+#include "Game/GameComponents/PawnPhysicsComponent.h"
 
 #include "GameEngine/EntitySystem/Components/CollidablePhysicsComponent.h"
 #include "GameEngine/EntitySystem/Components/ParticleEmitterComponent.h"
@@ -14,6 +15,9 @@ PlayerEntity::PlayerEntity()
 {
 	//Movement
 	m_playerMovementComponent = AddComponent<PlayerMovementComponent>();
+
+	//Physics
+	m_pawnPhysicsComponent = AddComponent<PawnPhysicsComponent>();
 
 	//Render 
 	m_renderComponent = AddComponent<GameEngine::SpriteRenderComponent>();	

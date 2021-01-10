@@ -163,6 +163,7 @@ XCOPY "$(SolutionDir)..\SFML-2.5.0\bin" "$(TargetDir)" /S /Y /I</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Game\GameComponents\PawnPhysicsComponent.cpp" />
     <ClCompile Include="Source\Game\GameComponents\PlayerCameraComponent.cpp" />
     <ClCompile Include="Source\GameEngine\Util\CameraManager.cpp" />
     <ClCompile Include="Source\Game\GameComponents\PlayerSoundComponent.cpp" />
@@ -188,6 +189,7 @@ XCOPY "$(SolutionDir)..\SFML-2.5.0\bin" "$(TargetDir)" /S /Y /I</Command>
     <ClCompile Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Game\GameComponents\PawnPhysicsComponent.h" />
     <ClInclude Include="Source\Game\GameComponents\PlayerCameraComponent.h" />
     <ClInclude Include="Source\GameEngine\Util\CameraManager.h" />
     <ClInclude Include="Source\Game\GameComponents\PlayerSoundComponent.h" />
@@ -210,6 +212,36 @@ XCOPY "$(SolutionDir)..\SFML-2.5.0\bin" "$(TargetDir)" /S /Y /I</Command>
     <ClInclude Include="Source\GameEngine\GameEngineMain.h" />
     <ClInclude Include="Source\GameEngine\Util\TextureManager.h" />
     <ClInclude Include="Source\GameEngine\EntitySystem\Components\SpriteRenderComponent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\img\0.png" />
+    <Image Include="Resources\img\1.png" />
+    <Image Include="Resources\img\2.png" />
+    <Image Include="Resources\img\3.png" />
+    <Image Include="Resources\img\4.png" />
+    <Image Include="Resources\img\5.png" />
+    <Image Include="Resources\img\6.png" />
+    <Image Include="Resources\img\7.png" />
+    <Image Include="Resources\img\8.png" />
+    <Image Include="Resources\img\9.png" />
+    <Image Include="Resources\img\armchair.png" />
+    <Image Include="Resources\img\armchair2.png" />
+    <Image Include="Resources\img\bathtub.png" />
+    <Image Include="Resources\img\bg.png" />
+    <Image Include="Resources\img\bookshelf.png" />
+    <Image Include="Resources\img\chair.png" />
+    <Image Include="Resources\img\chair2.png" />
+    <Image Include="Resources\img\chair3.png" />
+    <Image Include="Resources\img\sofa.png" />
+    <Image Include="Resources\img\stool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="NewFile.txt" />
+    <Text Include="Resources\NewFile1.txt" />
+    <Text Include="Source\Game\NewFile.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewFolder" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,6 +3,8 @@
 #include "GameEngine/EntitySystem/Components/AnimationComponent.h"
 #include "GameEngine/EntitySystem/Components/SpriteRenderComponent.h"
 #include "Game/GameComponents/PlayerMovementComponent.h"
+//#include "GameEngine/EntitySystem/Components/CollidablePhysicsComponent.h"
+#include "Game/GameComponents/PawnPhysicsComponent.h"
 
 namespace Game
 {			
@@ -18,7 +20,8 @@ namespace Game
 
 	protected:
 		GameEngine::SpriteRenderComponent* m_renderComponent;		
-		PlayerMovementComponent*	 m_playerMovementComponent;
+		PlayerMovementComponent* m_playerMovementComponent;
+		PawnPhysicsComponent* m_pawnPhysicsComponent;
 		GameEngine::AnimationComponent* m_animComponent;
 	};
 }

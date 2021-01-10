@@ -2,6 +2,7 @@
 
 #include "GameEngine/GameEngineMain.h"
 #include "GameEngine/EntitySystem/Components/SoundComponent.h"
+#include "Game/GameComponents/PawnPhysicsComponent.h"
 
 #include "GameEngine/Util/TextureManager.h"
 #include "GameEngine/Util/AnimationManager.h"
@@ -47,16 +48,26 @@ void PlayerMovementComponent::Update()
 	static float playerVel = 150.f; //Pixels/s
 
 	sf::Vector2f wantedVel = sf::Vector2f(0.f, 0.f);
+	
+	//Constantly moving right
+	wantedVel.x += playerVel * dt;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		wantedVel.x -= playerVel * dt;
+		wantedVel.y -= playerVel * dt; //wantedVel.y -= playerVel; ??
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		wantedVel.x += playerVel * dt;
+	} */
+
+	PawnPhysicsComponent* pawnPhys = GetEntity()->GetComponent<PawnPhysicsComponent>();
+	if (pawnPhys) {
+		pawnPhys->SetVelocity(wantedVel);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+
+	//////
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		wantedVel.y -= playerVel * dt;
 		if (m_playerSoundComponent)
@@ -71,7 +82,8 @@ void PlayerMovementComponent::Update()
 		{
 			m_playerSoundComponent->RequestSound(false);
 		}
-	}
+	} */
+	//////
 
 	GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
 
