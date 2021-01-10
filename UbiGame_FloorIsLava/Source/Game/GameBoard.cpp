@@ -181,8 +181,8 @@ void GameBoard::UpdatePlayerDying() ////////////////////////////////////
 
 void GameBoard::SpawnNewRandomObstacles()
 {
-	static float minNextSpawnTime = 0.3f;
-	static float maxNextSpawnTime = 0.7f;
+	static float minNextSpawnTime = 0.8f;
+	static float maxNextSpawnTime = 1.2f;
 
 	static float minObstacleXPos = 50.f;
 	static float maxObstacleXPos = 450.f;
