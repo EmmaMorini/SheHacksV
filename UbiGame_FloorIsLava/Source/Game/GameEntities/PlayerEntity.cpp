@@ -16,9 +16,6 @@ PlayerEntity::PlayerEntity()
 	//Movement
 	m_playerMovementComponent = AddComponent<PlayerMovementComponent>();
 
-	//Physics
-	m_pawnPhysicsComponent = AddComponent<PawnPhysicsComponent>();
-
 	//Render 
 	m_renderComponent = AddComponent<GameEngine::SpriteRenderComponent>();	
 	m_renderComponent->SetTexture(GameEngine::eTexture::Player);
@@ -60,6 +57,7 @@ void PlayerEntity::OnAddToWorld()
 	if (m_animComponent)
 	{
 		m_animComponent->PlayAnim(GameEngine::EAnimationId::BirdIdle);
+		m_animComponent->PlayAnim(GameEngine::EAnimationId::Lava);
 	}
 }
 

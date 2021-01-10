@@ -49,7 +49,7 @@ namespace TextureHelper
     {
         switch (texture)
         {
-        case  GameEngine::eTexture::Player:  return sf::Vector2f(32.f, 32.f);
+        case  GameEngine::eTexture::Player:  return sf::Vector2f(68.f, 110.f);
         //case  GameEngine::eTexture::Tileset: return sf::Vector2f(32.f, 32.f);
 		case  GameEngine::eTexture::Bookshelf: return sf::Vector2f(32.f, 32.f);
 		case  GameEngine::eTexture::Armchair1: return sf::Vector2f(32.f, 32.f);
@@ -71,6 +71,7 @@ namespace TextureHelper
 		case  GameEngine::eTexture::Number9: return sf::Vector2f(32.f, 32.f);
 		case  GameEngine::eTexture::Win: return sf::Vector2f(500.f, 500.f);
 		case  GameEngine::eTexture::Lose: return sf::Vector2f(500.f, 500.f);
+		case  GameEngine::eTexture::Lava: return sf::Vector2f(500.f, 100.f);
 
         default:							 return sf::Vector2f(-1.f, -1.f);
         }

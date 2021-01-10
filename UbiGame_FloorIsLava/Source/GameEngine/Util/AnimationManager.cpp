@@ -25,8 +25,8 @@ void AnimationManager::InitStaticGameAnimations()
 			EAnimationId::BirdIdle,
 			eTexture::Player,
 			sf::Vector2i(0, 0),
-			10,
-			3)
+			8,
+			9)
 	);
 
 	m_animDefinitions.push_back
@@ -45,6 +45,16 @@ void AnimationManager::InitStaticGameAnimations()
 			EAnimationId::Smoke,
 			eTexture::Particles,
 			sf::Vector2i(0, 0),
+			10,
+			15)
+	);
+
+	m_animDefinitions.push_back
+	(
+		SAnimationDefinition(
+			EAnimationId::Lava,
+			eTexture::Lava,
+			sf::Vector2i(5, 5),
 			10,
 			15)
 	);

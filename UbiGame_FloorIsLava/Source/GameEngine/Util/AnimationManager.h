@@ -14,6 +14,7 @@ namespace GameEngine
 			BirdIdle,
 			BirdFly,
 			Smoke,
+			Lava,
 			None,
 		};
 	}

@@ -15,15 +15,16 @@ using namespace Game;
 GameBoard::GameBoard()
 	: m_player(nullptr)
 	, m_backGround(nullptr)
+	, m_lava(nullptr)
 	, m_lastObstacleSpawnTimer(0.f)
 	, m_isGameOver(false)
 {
 	m_player = new PlayerEntity();
-	
+
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
-	m_player->SetPos(sf::Vector2f(50.f, 50.f));	
-	m_player->SetSize(sf::Vector2f(40.f, 40.f));
-	
+	m_player->SetPos(sf::Vector2f(50.f, 50.f));
+	m_player->SetSize(sf::Vector2f(40.f, 60.f));
+
 	CreateBackGround();
 	//Debug
 	for (int a = 0; a < 3; ++a)
@@ -40,7 +41,7 @@ GameBoard::~GameBoard()
 
 
 void GameBoard::Update()
-{	
+{
 	float dt = GameEngine::GameEngineMain::GetInstance()->GetTimeDelta();
 	if (!m_isGameOver)
 	{
@@ -52,7 +53,7 @@ void GameBoard::Update()
 		}
 
 		//timer to end the game in 60 seconds 
-		
+
 		float gametime = GameEngine::GameEngineMain::GetInstance()->GetTime();
 
 		//Start creating timer at top of screen
@@ -81,24 +82,24 @@ void GameBoard::Update()
 			case 9: SpawnNewObstacle(posdig1, sizedig1, "Number9");
 			}
 		}
-		else if(timertime >= 10){
+		else if (timertime >= 10) {
 			int seconddig = timertime % 10;
 			timertime = timertime / 10;
 			int firstdig = timertime % 10;
 
-			switch(firstdig){
-				case 0: SpawnNewObstacle(posdig1, sizedig1, "Number0");
-				case 1: SpawnNewObstacle(posdig1, sizedig1, "Number1");
-				case 2: SpawnNewObstacle(posdig1, sizedig1, "Number2");
-				case 3: SpawnNewObstacle(posdig1, sizedig1, "Number3");
-				case 4: SpawnNewObstacle(posdig1, sizedig1, "Number4");
-				case 5: SpawnNewObstacle(posdig1, sizedig1, "Number5");
-				case 6: SpawnNewObstacle(posdig1, sizedig1, "Number6");
-				case 7: SpawnNewObstacle(posdig1, sizedig1, "Number7");
-				case 8: SpawnNewObstacle(posdig1, sizedig1, "Number8");
-				case 9: SpawnNewObstacle(posdig1, sizedig1, "Number9");
+			switch (firstdig) {
+			case 0: SpawnNewObstacle(posdig1, sizedig1, "Number0");
+			case 1: SpawnNewObstacle(posdig1, sizedig1, "Number1");
+			case 2: SpawnNewObstacle(posdig1, sizedig1, "Number2");
+			case 3: SpawnNewObstacle(posdig1, sizedig1, "Number3");
+			case 4: SpawnNewObstacle(posdig1, sizedig1, "Number4");
+			case 5: SpawnNewObstacle(posdig1, sizedig1, "Number5");
+			case 6: SpawnNewObstacle(posdig1, sizedig1, "Number6");
+			case 7: SpawnNewObstacle(posdig1, sizedig1, "Number7");
+			case 8: SpawnNewObstacle(posdig1, sizedig1, "Number8");
+			case 9: SpawnNewObstacle(posdig1, sizedig1, "Number9");
 			}
-			switch(seconddig){
+			switch (seconddig) {
 			case 0: SpawnNewObstacle(posdig2, sizedig2, "Number0");
 			case 1: SpawnNewObstacle(posdig2, sizedig2, "Number1");
 			case 2: SpawnNewObstacle(posdig2, sizedig2, "Number2");
@@ -111,8 +112,8 @@ void GameBoard::Update()
 			case 9: SpawnNewObstacle(posdig2, sizedig2, "Number9");
 			}
 		}
-			
-		
+
+
 
 
 		//std::cout << gametime << std::endl; // to print out the time passed to test out the timer
@@ -122,19 +123,19 @@ void GameBoard::Update()
 			m_isGameOver = true;
 
 		}
-		
+
 
 		UpdateObstacles(dt);
 		UpdateBackGround();
-		UpdatePlayerDying(); 
-	}		
+		UpdatePlayerDying();
+	}
 }
 
 
 void GameBoard::UpdateObstacles(float dt)
 {
 	static float obstacleSpeed = 100.f;
-	
+
 	for (std::vector<GameEngine::Entity*>::iterator it = m_obstacles.begin(); it != m_obstacles.end();)
 	{
 		GameEngine::Entity* obstacle = (*it);
@@ -156,7 +157,7 @@ void GameBoard::UpdateObstacles(float dt)
 
 
 void GameBoard::UpdatePlayerDying() ////////////////////////////////////
-{	
+{
 	bool noGameOver = GameEngine::CameraManager::IsFollowCameraEnabled();
 
 	if (noGameOver)
@@ -182,7 +183,7 @@ void GameBoard::SpawnNewRandomObstacles()
 	//Make sure object is spawned on the ground
 	static float minObstacleYPos = 0.f;
 	static float maxObstacleYPos = 0.f;
-	
+
 	static float minObstacleHeight = 32.f;
 	static float maxObstacleHeight = 32.f;
 	static float minObstacleWidth = 32.f;
@@ -200,14 +201,14 @@ void GameBoard::SpawnNewRandomObstacles()
 	case 4: /*Spawn the chair 1*/ SpawnNewObstacle(pos, size, "Chair1");
 	case 5: /*Spawn the chair 2*/ SpawnNewObstacle(pos, size, "Chair2");
 	case 6: /*Spawn the bathtub*/ SpawnNewObstacle(pos, size, "Bathtub");
-	
+
 	}
 
 	//SpawnNewObstacle(pos, size);
 
-	m_lastObstacleSpawnTimer = RandomFloatRange(minNextSpawnTime, maxNextSpawnTime); 
+	m_lastObstacleSpawnTimer = RandomFloatRange(minNextSpawnTime, maxNextSpawnTime);
 
-	
+
 }
 
 //End message pop-up code//
@@ -221,10 +222,10 @@ void GameBoard::SpawnEndMessage(bool win)
 
 void GameBoard::SpawnEnd(const sf::Vector2f& pos, const sf::Vector2f& size, bool win)
 {
-	if(win == true){
+	if (win == true) {
 		SpawnNewObstacle(pos, size, "Win");
 	}
-	else{
+	else {
 		SpawnNewObstacle(pos, size, "Lose");
 	}
 	//PlayerEntity* player = new PlayerEntity();
@@ -247,7 +248,7 @@ void GameBoard::SpawnEnd(const sf::Vector2f& pos, const sf::Vector2f& size, bool
 	static float minObstacleYPos = 20.f;
 	static float maxObstacleYPos = 450.f;
 
-	sf::Vector2f pos = sf::Vector2f(RandomFloatRange(minObstacleXPos, maxObstacleXPos), RandomFloatRange(minObstacleYPos, maxObstacleYPos));	
+	sf::Vector2f pos = sf::Vector2f(RandomFloatRange(minObstacleXPos, maxObstacleXPos), RandomFloatRange(minObstacleYPos, maxObstacleYPos));
 	sf::Vector2f size = sf::Vector2f(32.f, 32.f);
 
 	int obstacleCount = (int)RandomFloatRange((float)minObstacleCount, (float)maxObstacleCount);
@@ -284,12 +285,22 @@ void GameBoard::CreateBackGround()
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(bgEntity);
 
 	m_backGround = bgEntity;
+
+	GameEngine::Entity* lavaEntity = new GameEngine::Entity();
+	GameEngine::SpriteRenderComponent* render2 = lavaEntity->AddComponent<GameEngine::SpriteRenderComponent>();
+	render2->SetTexture(GameEngine::eTexture::Lava);
+	render2->SetZLevel(1);
+	lavaEntity->SetPos(sf::Vector2f(250.f, 450.f));
+	lavaEntity->SetSize(sf::Vector2f(500.f, 100.f));
+	GameEngine::GameEngineMain::GetInstance()->AddEntity(lavaEntity);
+
+	m_lava = lavaEntity;
 }
 
 
 void GameBoard::UpdateBackGround()
 {
-	if (!m_backGround || !m_player)
+	if (!m_backGround || !m_lava || !m_player)
 		return;
 
 	if (!GameEngine::CameraManager::IsFollowCameraEnabled())

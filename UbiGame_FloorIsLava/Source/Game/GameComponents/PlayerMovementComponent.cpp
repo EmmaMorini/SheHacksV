@@ -2,7 +2,6 @@
 
 #include "GameEngine/GameEngineMain.h"
 #include "GameEngine/EntitySystem/Components/SoundComponent.h"
-#include "Game/GameComponents/PawnPhysicsComponent.h"
 
 #include "GameEngine/Util/TextureManager.h"
 #include "GameEngine/Util/AnimationManager.h"
@@ -48,26 +47,16 @@ void PlayerMovementComponent::Update()
 	static float playerVel = 150.f; //Pixels/s
 
 	sf::Vector2f wantedVel = sf::Vector2f(0.f, 0.f);
-	
-	//Constantly moving right
-	wantedVel.x += playerVel * dt;
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		wantedVel.y -= playerVel * dt; //wantedVel.y -= playerVel; ??
+		wantedVel.x -= playerVel * dt;
 	}
-	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		wantedVel.x += playerVel * dt;
-	} */
-
-	PawnPhysicsComponent* pawnPhys = GetEntity()->GetComponent<PawnPhysicsComponent>();
-	if (pawnPhys) {
-		pawnPhys->SetVelocity(wantedVel);
 	}
-
-	//////
-	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
 		wantedVel.y -= playerVel * dt;
 		if (m_playerSoundComponent)
@@ -82,8 +71,7 @@ void PlayerMovementComponent::Update()
 		{
 			m_playerSoundComponent->RequestSound(false);
 		}
-	} */
-	//////
+	}
 
 	GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
 
@@ -105,16 +93,16 @@ void PlayerMovementComponent::Update()
 				m_animComponent->PlayAnim(GameEngine::EAnimationId::BirdFly);
 			}
 		}
-		else if(m_animComponent->GetCurrentAnimation() != GameEngine::EAnimationId::BirdIdle)
+		else if (m_animComponent->GetCurrentAnimation() != GameEngine::EAnimationId::BirdIdle)
 		{
 			m_animComponent->PlayAnim(GameEngine::EAnimationId::BirdIdle);
 		}
 	}
 
-	
+
 	static float rotationVel = 50.f; //Deg/s
 	static float maxRotation = 20.f; //Deg
-	
+
 	float currentRotation = GetEntity()->GetRot();
 	float wantedRot = 0.f;
 	bool  reseting = false;
@@ -124,7 +112,7 @@ void PlayerMovementComponent::Update()
 	else if (wantedVel.y < 0.f)
 		wantedRot = -rotationVel;
 	else
-	{				
+	{
 		if (currentRotation > 0.f)
 			wantedRot = -rotationVel;
 		else if (currentRotation < 0.f)

@@ -32,6 +32,7 @@ namespace GameEngine
 			Number0,
 			Win,
 			Lose,
+			Lava,
 			Count,
 		};
 	}	
@@ -61,6 +62,7 @@ namespace GameEngine
 		case eTexture::Particles: return "particles.png";
 		case eTexture::Win:		  return "win.png";
 		case eTexture::Lose: return "lose.png";
+		case eTexture::Lava: return "lava12.png";
 		default:       return "UnknownTexType";
 		}
 	}

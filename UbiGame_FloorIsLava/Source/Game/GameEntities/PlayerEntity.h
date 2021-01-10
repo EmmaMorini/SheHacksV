@@ -21,7 +21,6 @@ namespace Game
 	protected:
 		GameEngine::SpriteRenderComponent* m_renderComponent;		
 		PlayerMovementComponent* m_playerMovementComponent;
-		PawnPhysicsComponent* m_pawnPhysicsComponent;
 		GameEngine::AnimationComponent* m_animComponent;
 	};
 }

@@ -8,7 +8,7 @@
 namespace Game
 {
 	//Used for storing and controling all game related entities
-	class PlayerEntity;	
+	class PlayerEntity;
 
 	class GameBoard
 	{
@@ -28,7 +28,7 @@ namespace Game
 		void SpawnNewRandomTiledObstacles();
 		void SpawnNewObstacle(const sf::Vector2f& pos, const sf::Vector2f& size, std::string objectType);
 
-		bool IsGameOver() const { return m_isGameOver; }		
+		bool IsGameOver() const { return m_isGameOver; }
 
 	protected:
 		//Placeholder temp - should go to helpers or smth.
@@ -42,6 +42,7 @@ namespace Game
 
 		PlayerEntity* m_player;
 		GameEngine::Entity* m_backGround;
+		GameEngine::Entity* m_lava;
 
 		std::vector<GameEngine::Entity*> m_obstacles;
 		float m_lastObstacleSpawnTimer;
