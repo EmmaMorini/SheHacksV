@@ -8,6 +8,7 @@ namespace Game {
 		public:
 			PawnPhysicsComponent();
 			~PawnPhysicsComponent();
+			float Lerp(float a, float b, float f);
 
 			virtual void OnAddToWorld() override;
 			virtual void Update() override;

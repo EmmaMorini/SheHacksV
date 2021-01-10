@@ -52,12 +52,12 @@ namespace TextureHelper
         case  GameEngine::eTexture::Player:  return sf::Vector2f(68.f, 110.f);
         //case  GameEngine::eTexture::Tileset: return sf::Vector2f(32.f, 32.f);
 
-		case  GameEngine::eTexture::Bookshelf: return sf::Vector2f(32.f, 32.f);
-		case  GameEngine::eTexture::Armchair1: return sf::Vector2f(32.f, 32.f);
-		case  GameEngine::eTexture::Armchair2: return sf::Vector2f(32.f, 32.f);
-		case  GameEngine::eTexture::Chair1: return sf::Vector2f(32.f, 32.f);
+		case  GameEngine::eTexture::Bookshelf: return sf::Vector2f(149.f, 143.f);
+		case  GameEngine::eTexture::Armchair1: return sf::Vector2f(133.f, 136.f);
+		case  GameEngine::eTexture::Armchair2: return sf::Vector2f(146.f, 142.f);
+		case  GameEngine::eTexture::Chair1: return sf::Vector2f(101.f, 142.f);
 		case  GameEngine::eTexture::Chair2: return sf::Vector2f(131.f, 149.f);
-		case  GameEngine::eTexture::Bathtub: return sf::Vector2f(32.f, 32.f); 
+		case  GameEngine::eTexture::Bathtub: return sf::Vector2f(142.f, 121.f); 
         case  GameEngine::eTexture::BG:	     return sf::Vector2f(500.f, 500.f);
         case  GameEngine::eTexture::Particles: return sf::Vector2f(31.f, 32.f);
 		case  GameEngine::eTexture::Number0: return sf::Vector2f(32.f, 32.f);

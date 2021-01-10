@@ -204,7 +204,7 @@ void GameBoard::SpawnNewRandomObstacles()
 
 	//Generate random number from 1-6 and spawn a funiture item
 	// increased randnum max so that the frequency of obstacles is lessened
-	int num = rand() % 15 + 1;
+	int num = rand() % 6 + 1;
 	switch (num) {
 	case 1: /*Spawn the bookshelf*/ SpawnNewObstacle(pos, size, "Bookshelf");
 	case 2: /*Spawn the armchair 1*/ SpawnNewObstacle(pos, size, "Armchair1");

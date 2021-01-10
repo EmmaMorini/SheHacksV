@@ -12,11 +12,11 @@ ObstacleEntity::ObstacleEntity(std::string objectType)
 {
 	m_renderComponent = AddComponent<GameEngine::SpriteRenderComponent>();
 	m_renderComponent->SetFillColor(sf::Color::Red);
-	/*
+	
 	if (objectType == "Player") {
 		m_renderComponent->SetTexture(GameEngine::eTexture::Player);
 	}
-	else if(objectType == "Bookshelf"){
+	/*else if(objectType == "Bookshelf"){
 		m_renderComponent->SetTexture(GameEngine::eTexture::Bookshelf);
 	}
 	else if(objectType == "Armchair1"){
@@ -34,13 +34,14 @@ ObstacleEntity::ObstacleEntity(std::string objectType)
 	else if(objectType == "Bathtub"){
 		m_renderComponent->SetTexture(GameEngine::eTexture::Bathtub);
 	}
+	*/
 	else if(objectType == "BG"){
 		m_renderComponent->SetTexture(GameEngine::eTexture::BG);
 	}
 	else if(objectType == "Particles"){
 		m_renderComponent->SetTexture(GameEngine::eTexture::Particles);
-	} */
-	if(objectType == "Number0"){
+	} 
+	else if(objectType == "Number0"){
 		m_renderComponent->SetTexture(GameEngine::eTexture::Number0);
 	}
 	else if(objectType == "Number1"){

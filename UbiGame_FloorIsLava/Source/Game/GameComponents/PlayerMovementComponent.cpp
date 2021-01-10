@@ -8,6 +8,8 @@
 
 #include "Game/GameComponents/PlayerSoundComponent.h"
 
+#include "Game/GameComponents/PawnPhysicsComponent.h"
+
 #include <SFML/Window/Keyboard.hpp>
 
 using namespace Game;
@@ -17,6 +19,7 @@ PlayerMovementComponent::PlayerMovementComponent()
 	, m_flyTimerMaxTime(2.f)
 	, m_animComponent(nullptr)
 	, m_playerSoundComponent(nullptr)
+	, m_wasJumpButtonPressed(false)
 {
 
 }
@@ -29,14 +32,14 @@ PlayerMovementComponent::~PlayerMovementComponent()
 
 void PlayerMovementComponent::OnAddToWorld()
 {
-	m_animComponent = GetEntity()->GetComponent<GameEngine::AnimationComponent>();
-	m_playerSoundComponent = GetEntity()->GetComponent<PlayerSoundComponent>();
+	//m_animComponent = GetEntity()->GetComponent<GameEngine::AnimationComponent>();
+	//m_playerSoundComponent = GetEntity()->GetComponent<PlayerSoundComponent>();
 }
 
 
 void PlayerMovementComponent::Update()
 {
-	Component::Update();
+	__super::Update();
 
 	if (GameEngine::GameEngineMain::GetInstance()->IsGameOver())
 	{
@@ -44,11 +47,33 @@ void PlayerMovementComponent::Update()
 	}
 
 	float dt = GameEngine::GameEngineMain::GetTimeDelta();
-	static float playerVel = 150.f; //Pixels/s
+
+	
+	static float playerVel = 100.f; //Pixels/s
+	float jumpVelocity = 200.f;
 
 	sf::Vector2f wantedVel = sf::Vector2f(0.f, 0.f);
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
+		if(!m_wasJumpButtonPressed){
+			wantedVel.y -= jumpVelocity;
+			m_wasJumpButtonPressed = true;
+		}
+	}
+	else{
+		m_wasJumpButtonPressed = false;
+	}
+
+	PawnPhysicsComponent* pawnPhys = GetEntity()->GetComponent<PawnPhysicsComponent>();
+
+	if(pawnPhys){
+		pawnPhys->SetVelocity(wantedVel);
+	}
+
+
+
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		wantedVel.x -= playerVel * dt;
 	}
@@ -72,8 +97,9 @@ void PlayerMovementComponent::Update()
 			m_playerSoundComponent->RequestSound(false);
 		}
 	}
+	*/
 
-	GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
+	/*GetEntity()->SetPos(GetEntity()->GetPos() + wantedVel);
 
 	if (wantedVel != sf::Vector2f(0.f, 0.f))
 	{
@@ -138,4 +164,5 @@ void PlayerMovementComponent::Update()
 	}
 
 	GetEntity()->SetRotation(totalRot);
+	*/
 }

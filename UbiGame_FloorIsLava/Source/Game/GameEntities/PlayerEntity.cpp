@@ -16,6 +16,8 @@ PlayerEntity::PlayerEntity()
 	//Movement
 	m_playerMovementComponent = AddComponent<PlayerMovementComponent>();
 
+	AddComponent<PawnPhysicsComponent>();
+
 	//Render 
 	m_renderComponent = AddComponent<GameEngine::SpriteRenderComponent>();	
 	m_renderComponent->SetTexture(GameEngine::eTexture::Player);

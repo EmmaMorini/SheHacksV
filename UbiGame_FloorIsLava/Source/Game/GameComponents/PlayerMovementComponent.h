@@ -19,6 +19,7 @@ namespace Game
 	private:
 		float m_flyTimerDt;
 		float m_flyTimerMaxTime;
+		bool m_wasJumpButtonPressed;
 
 		GameEngine::AnimationComponent* m_animComponent;
 		PlayerSoundComponent*			m_playerSoundComponent;
