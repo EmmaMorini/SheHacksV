@@ -232,16 +232,37 @@ void GameBoard::SpawnEndMessage(bool win)
 
 void GameBoard::SpawnEnd(const sf::Vector2f& pos, const sf::Vector2f& size, bool win)
 {
+	/*
 	if (win == true) {
 		SpawnNewObstacle(pos, size, "Win");
 	}
 	else {
 		SpawnNewObstacle(pos, size, "Lose");
-	}
+	} */
 	//PlayerEntity* player = new PlayerEntity();
 	//GameEngine::GameEngineMain::GetInstance()->AddEntity(player);
 	//player->SetPos(pos);
 	//player->SetSize(sf::Vector2f(size.x, size.y));
+
+	// add lose/ win background
+	if (win) {
+		GameEngine::Entity* winEntity = new GameEngine::Entity();
+		GameEngine::SpriteRenderComponent* render2 = winEntity->AddComponent<GameEngine::SpriteRenderComponent>();
+		render2->SetTexture(GameEngine::eTexture::Win);
+		render2->SetZLevel(5);
+		winEntity->SetPos(sf::Vector2f(250.f, 250.f));
+		winEntity->SetSize(sf::Vector2f(500.f, 500.f));
+		GameEngine::GameEngineMain::GetInstance()->AddEntity(winEntity);
+	}
+	else {
+		GameEngine::Entity* winEntity = new GameEngine::Entity();
+		GameEngine::SpriteRenderComponent* render2 = winEntity->AddComponent<GameEngine::SpriteRenderComponent>();
+		render2->SetTexture(GameEngine::eTexture::Lose);
+		render2->SetZLevel(5);
+		winEntity->SetPos(sf::Vector2f(250.f, 250.f));
+		winEntity->SetSize(sf::Vector2f(500.f, 500.f));
+		GameEngine::GameEngineMain::GetInstance()->AddEntity(winEntity);
+	}
 }
 //
 

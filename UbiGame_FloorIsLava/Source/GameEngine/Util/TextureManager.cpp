@@ -70,8 +70,8 @@ namespace TextureHelper
 		case  GameEngine::eTexture::Number7: return sf::Vector2f(32.f, 32.f);
 		case  GameEngine::eTexture::Number8: return sf::Vector2f(32.f, 32.f);
 		case  GameEngine::eTexture::Number9: return sf::Vector2f(32.f, 32.f);
-		case  GameEngine::eTexture::Win: return sf::Vector2f(500.f, 500.f);
-		case  GameEngine::eTexture::Lose: return sf::Vector2f(500.f, 500.f);
+		case  GameEngine::eTexture::Win: return sf::Vector2f(224.f, 160.f);
+		case  GameEngine::eTexture::Lose: return sf::Vector2f(224.f, 160.f);
 		case  GameEngine::eTexture::Lava: return sf::Vector2f(500.f, 100.f);
 
         default:							 return sf::Vector2f(-1.f, -1.f);

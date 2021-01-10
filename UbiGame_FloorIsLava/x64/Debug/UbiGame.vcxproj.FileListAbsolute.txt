@@ -1,0 +1,2 @@
+C:\Users\sokha\Desktop\HackersNest-3eb07853963049a1cecb840e1bc7cb48c4813a35\HackersNest-3eb07853963049a1cecb840e1bc7cb48c4813a35\UbiGame_FlappBird\x64\Debug\UbiGame.exe
+C:\Users\sokha\Desktop\HackersNest-3eb07853963049a1cecb840e1bc7cb48c4813a35\HackersNest-3eb07853963049a1cecb840e1bc7cb48c4813a35\UbiGame_FlappBird\x64\Debug\UbiGame.pdb
