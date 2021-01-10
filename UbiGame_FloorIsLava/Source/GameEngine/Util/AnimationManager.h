@@ -50,8 +50,8 @@ namespace GameEngine
 			: m_animId(EAnimationId::None)
 			, m_texture(eTexture::None)
 			, m_startTile(sf::Vector2i(0, 0))
-			, m_frameCount(5)
-			, m_fps(20)			
+			, m_frameCount(1)
+			, m_fps(1)			
 		{
 
 		}

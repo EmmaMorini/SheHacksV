@@ -47,6 +47,8 @@ namespace Game
 		std::vector<GameEngine::Entity*> m_obstacles;
 		float m_lastObstacleSpawnTimer;
 		bool  m_isGameOver;
+
+		int timertime;
 	};
 }
 

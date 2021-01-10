@@ -12,7 +12,7 @@ ObstacleEntity::ObstacleEntity(std::string objectType)
 {
 	m_renderComponent = AddComponent<GameEngine::SpriteRenderComponent>();
 	m_renderComponent->SetFillColor(sf::Color::Red);
-
+	/*
 	if (objectType == "Player") {
 		m_renderComponent->SetTexture(GameEngine::eTexture::Player);
 	}
@@ -26,9 +26,9 @@ ObstacleEntity::ObstacleEntity(std::string objectType)
 		m_renderComponent->SetTexture(GameEngine::eTexture::Armchair2);
 	}
 	else if(objectType == "Chair1"){
-		m_renderComponent->SetTexture(GameEngine::eTexture::Chair1);
+		m_renderComponent->SetTexture(GameEngine::eTexture::Chair1); 
 	}
-	else if(objectType == "Chair2"){
+	else if(objectType == "Chair2"){ 
 		m_renderComponent->SetTexture(GameEngine::eTexture::Chair2);
 	}
 	else if(objectType == "Bathtub"){
@@ -39,8 +39,8 @@ ObstacleEntity::ObstacleEntity(std::string objectType)
 	}
 	else if(objectType == "Particles"){
 		m_renderComponent->SetTexture(GameEngine::eTexture::Particles);
-	}
-	else if(objectType == "Number0"){
+	} */
+	if(objectType == "Number0"){
 		m_renderComponent->SetTexture(GameEngine::eTexture::Number0);
 	}
 	else if(objectType == "Number1"){
@@ -77,9 +77,9 @@ ObstacleEntity::ObstacleEntity(std::string objectType)
 		m_renderComponent->SetTexture(GameEngine::eTexture::Lose);
 	}
 	else{
-		m_renderComponent->SetTexture(GameEngine::eTexture::Bathtub);
+		m_renderComponent->SetTexture(GameEngine::eTexture::Chair2);
 	}
-	//m_renderComponent->SetTexture(GameEngine::eTexture::Bookshelf);
+	//m_renderComponent->SetTexture(GameEngine::eTexture::Bookshelf); 
 	m_renderComponent->SetZLevel(2);
 	m_renderComponent->SetTileIndex(0, 0);
 

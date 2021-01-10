@@ -26,7 +26,7 @@ void AnimationManager::InitStaticGameAnimations()
 			eTexture::Player,
 			sf::Vector2i(0, 0),
 			8,
-			9)
+			12)
 	);
 
 	m_animDefinitions.push_back
@@ -45,8 +45,8 @@ void AnimationManager::InitStaticGameAnimations()
 			EAnimationId::Smoke,
 			eTexture::Particles,
 			sf::Vector2i(0, 0),
-			10,
-			15)
+			0,
+			0) // bandaid solution to remove smoke
 	);
 
 	m_animDefinitions.push_back
@@ -54,9 +54,19 @@ void AnimationManager::InitStaticGameAnimations()
 		SAnimationDefinition(
 			EAnimationId::Lava,
 			eTexture::Lava,
-			sf::Vector2i(5, 5),
-			10,
-			15)
+			sf::Vector2i(0, 0),
+			2,
+			1)
+	);
+
+	m_animDefinitions.push_back
+	(
+		SAnimationDefinition(
+			EAnimationId::None,
+			eTexture::Chair2,
+			sf::Vector2i(0, 0),
+			2,
+			1)
 	);
 }
 

@@ -67,7 +67,6 @@ void SpriteRenderComponent::UpdateTileRect()
 	sf::Texture* texture = TextureManager::GetInstance()->GetTexture(m_texture);
 	if (!texture)
 		return;
-
 	//This updates the wanted rectangle of the texture and is used when animations are playing
 	sf::Vector2f textureSize = sf::Vector2f(texture->getSize());
 	if (TextureHelper::GetTextureTileSize(m_texture).x > 0.f)

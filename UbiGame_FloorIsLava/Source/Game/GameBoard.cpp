@@ -22,7 +22,7 @@ GameBoard::GameBoard()
 	m_player = new PlayerEntity();
 
 	GameEngine::GameEngineMain::GetInstance()->AddEntity(m_player);
-	m_player->SetPos(sf::Vector2f(50.f, 50.f));
+	m_player->SetPos(sf::Vector2f(100.f, 330.f));
 	m_player->SetSize(sf::Vector2f(40.f, 60.f));
 
 	CreateBackGround();
@@ -58,7 +58,7 @@ void GameBoard::Update()
 
 		//Start creating timer at top of screen
 
-		int timertime = (int)gametime;
+		timertime = (int)gametime;
 
 		sf::Vector2f posdig1 = sf::Vector2f(400.f, 400.f);
 		sf::Vector2f sizedig1 = sf::Vector2f(32.f, 32.f);
@@ -68,6 +68,7 @@ void GameBoard::Update()
 
 		//Check gametime and update number entities at top of screen
 		//For numbers 0-9
+		/*
 		if (timertime < 10) {
 			switch (timertime) {
 			case 0: SpawnNewObstacle(posdig1, sizedig1, "Number0");
@@ -111,7 +112,7 @@ void GameBoard::Update()
 			case 8: SpawnNewObstacle(posdig2, sizedig2, "Number8");
 			case 9: SpawnNewObstacle(posdig2, sizedig2, "Number9");
 			}
-		}
+		} */
 
 
 
@@ -189,11 +190,15 @@ void GameBoard::SpawnNewRandomObstacles()
 	static float minObstacleWidth = 32.f;
 	static float maxObstacleWidth = 32.f;
 
-	sf::Vector2f pos = sf::Vector2f(RandomFloatRange(minObstacleXPos, maxObstacleXPos), RandomFloatRange(minObstacleYPos, maxObstacleYPos));
-	sf::Vector2f size = sf::Vector2f(RandomFloatRange(minObstacleWidth, maxObstacleWidth), RandomFloatRange(minObstacleHeight, maxObstacleHeight));
+	//sf::Vector2f pos = sf::Vector2f(RandomFloatRange(minObstacleXPos, maxObstacleXPos), RandomFloatRange(minObstacleYPos, maxObstacleYPos));
+	//sf::Vector2f size = sf::Vector2f(RandomFloatRange(minObstacleWidth, maxObstacleWidth), RandomFloatRange(minObstacleHeight, maxObstacleHeight));
+	sf::Vector2f size = sf::Vector2f(60.f, 70.f);
+	sf::Vector2f pos = sf::Vector2f(450.f, 400.f);
+
 
 	//Generate random number from 1-6 and spawn a funiture item
-	int num = rand() % 6 + 1;
+	// increased randnum max so that the frequency of obstacles is lessened
+	int num = rand() % 15 + 1;
 	switch (num) {
 	case 1: /*Spawn the bookshelf*/ SpawnNewObstacle(pos, size, "Bookshelf");
 	case 2: /*Spawn the armchair 1*/ SpawnNewObstacle(pos, size, "Armchair1");
@@ -201,7 +206,6 @@ void GameBoard::SpawnNewRandomObstacles()
 	case 4: /*Spawn the chair 1*/ SpawnNewObstacle(pos, size, "Chair1");
 	case 5: /*Spawn the chair 2*/ SpawnNewObstacle(pos, size, "Chair2");
 	case 6: /*Spawn the bathtub*/ SpawnNewObstacle(pos, size, "Bathtub");
-
 	}
 
 	//SpawnNewObstacle(pos, size);
